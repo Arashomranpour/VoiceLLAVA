@@ -1,38 +1,56 @@
-1. Project Title and Description:
-Title: VoiceLLAVA - Voice and Image Interactive Language Model Assistant
-Description:
-"VoiceLLAVA is a multimodal assistant that utilizes an advanced large language model to interact with users through voice and image inputs. It features real-time voice recognition, image processing, and text-to-speech capabilities, all powered by the LLava model and Gradio's web interface."
-2. Installation Instructions:
-Prerequisites: Ensure you have the following installed:
-Python 3.8+
-PyTorch (with CUDA for GPU acceleration)
-transformers library
-Gradio for the web interface
-gTTS for text-to-speech conversion
-ffmpeg for handling audio inputs/outputs
-Installation Steps:
-bash
-Copy code
-git clone https://github.com/Arashomranpour/VoiceLLAVA.git
-cd VoiceLLAVA
-pip install -r requirements.txt
-Additional Setup: Make sure to install the correct LLava model:
-bash
-Copy code
-transformers-cli download llava-hf/llava-1.5-7b-hf
-3. Usage Guide:
-Basic Usage: To run the interface, execute:
-bash
-Copy code
-python Voice_Assistant.ipynb
-Interacting with the Assistant:
-Audio Input: Speak through your microphone to interact with the assistant.
-Image Input: Upload an image to get a contextual response.
-Output: You'll receive a text response along with audio playback of the model's response.
-4. Modules & Workflow:
-Main Components:
-Audio Input & Speech-to-Text: Uses Whisper for transcription.
-Text and Image Processing: Combines image-to-text and speech-to-text for interaction using the LLava model.
-Text-to-Speech: Converts model-generated text back into audio using gTTS.
-Gradio Interface:
-The interface allows users to input audio and image files, interact with the model, and receive responses in both text and audio formats.
+# VoiceLLAVA - Voice Assistant with LLAVA
+
+VoiceLLAVA is a voice assistant application built using the power of natural language processing and voice recognition. This project integrates a Large Language Model with voice commands to provide a hands-free interface for users to interact with and get responses in real-time.
+
+## Features
+- **Voice Recognition**: Converts spoken words into text.
+- **Natural Language Understanding**: Processes user queries using a language model to generate responses.
+- **Real-time Interaction**: Responds instantly to spoken commands, creating an interactive voice-based system.
+- **Flexible Usage**: Can be expanded to serve different use cases (e.g., personal assistant, home automation, etc.).
+
+## Project Structure
+
+- `Voice_Assistant.ipynb`: Jupyter notebook implementing the core functionalities of the voice assistant.
+- `requirements.txt`: List of Python dependencies required to run the project.
+- `README.md`: This file, which provides an overview of the project.
+
+## Installation and Setup
+
+To run this project locally, follow these steps:
+
+1. **Clone the repository**:
+    ```bash
+    git clone https://github.com/Arashomranpour/VoiceLLAVA.git
+    cd VoiceLLAVA
+    ```
+
+2. **Install the required dependencies**:
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+3. **Run the Jupyter notebook**:
+    Open `Voice_Assistant.ipynb` in Jupyter and run the cells sequentially to start the voice assistant.
+
+## Requirements
+
+- Python 3.8 or higher
+- `SpeechRecognition`: Used for converting speech to text.
+- `gTTS`: Google Text-to-Speech for generating audio responses.
+- `transformers`: Hugging Face's transformer library for language modeling.
+- Jupyter Notebook (for running the provided `.ipynb` file)
+
+## Usage
+
+Once the environment is set up and the notebook is running, the voice assistant will listen for commands and respond with spoken answers. It uses pre-trained models for natural language understanding and can be customized based on specific needs.
+
+## Future Enhancements
+
+- **Expand Command Set**: Include more predefined commands for diverse use cases.
+- **Custom Responses**: Allow users to define personalized responses or actions.
+- **Web Integration**: Deploy the assistant as a web app for easier access.
+
+## Contributing
+
+Feel free to fork the repository, submit issues, and create pull requests. Contributions are welcome to improve the assistant’s capabilities and performance.
+
