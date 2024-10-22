@@ -1,9 +1,4 @@
-Key Features:
-LLM Integration: The notebook integrates with the LLava model (llava-hf/llava-1.5-7b-hf) using the transformers library.
-Voice and Image Processing: It processes audio input (through voice-to-text) and image input (through an image-to-text feature).
-Gradio Interface: A web-based UI built using Gradio, enabling users to interact via microphone and image uploads. The model processes both inputs and responds with text and audio.
-TTS (Text-to-Speech): Uses the gTTS (Google Text-to-Speech) library to convert text back into audio.
-
+1. Project Title and Description:
 Title: VoiceLLAVA - Voice and Image Interactive Language Model Assistant
 Description:
 "VoiceLLAVA is a multimodal assistant that utilizes an advanced large language model to interact with users through voice and image inputs. It features real-time voice recognition, image processing, and text-to-speech capabilities, all powered by the LLava model and Gradio's web interface."
@@ -40,4 +35,4 @@ Audio Input & Speech-to-Text: Uses Whisper for transcription.
 Text and Image Processing: Combines image-to-text and speech-to-text for interaction using the LLava model.
 Text-to-Speech: Converts model-generated text back into audio using gTTS.
 Gradio Interface:
-The interface allows users to input audio and image files, interact with the model, and receive responses in both text and audio formats
+The interface allows users to input audio and image files, interact with the model, and receive responses in both text and audio formats.
