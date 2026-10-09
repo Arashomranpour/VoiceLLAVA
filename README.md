@@ -1,56 +1,58 @@
-# VoiceLLAVA - Voice Assistant with LLAVA
+<div align="center">
 
-VoiceLLAVA is a voice assistant application built using the power of natural language processing and voice recognition. This project integrates a Large Language Model with voice commands to provide a hands-free interface for users to interact with and get responses in real-time.
+# 🎙️👁️ VoiceLLAVA - Talk to an Image
 
-## Features
-- **Voice Recognition**: Converts spoken words into text.
-- **Natural Language Understanding**: Processes user queries using a language model to generate responses.
-- **Real-time Interaction**: Responds instantly to spoken commands, creating an interactive voice-based system.
-- **Flexible Usage**: Can be expanded to serve different use cases (e.g., personal assistant, home automation, etc.).
+**A multimodal voice assistant: show it a picture, ask a question out loud, and hear the answer.**
 
-## Project Structure
+![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white)
+![LLaVA](https://img.shields.io/badge/LLaVA-1.5_7B-6A5ACD)
+![Whisper](https://img.shields.io/badge/OpenAI_Whisper-412991?logo=openai&logoColor=white)
+![Gradio](https://img.shields.io/badge/Gradio-F97316)
+![Colab](https://img.shields.io/badge/Open_in-Colab-F9AB00?logo=googlecolab&logoColor=white)
 
-- `Voice_Assistant.ipynb`: Jupyter notebook implementing the core functionalities of the voice assistant.
-- `requirements.txt`: List of Python dependencies required to run the project.
-- `README.md`: This file, which provides an overview of the project.
+</div>
 
-## Installation and Setup
+---
 
-To run this project locally, follow these steps:
+## ✨ How it works
 
-1. **Clone the repository**:
-    ```bash
-    git clone https://github.com/Arashomranpour/VoiceLLAVA.git
-    cd VoiceLLAVA
-    ```
+```mermaid
+flowchart LR
+    A[🎤 Your voice] --> W[Whisper<br/>speech-to-text]
+    I[🖼️ Image] --> L
+    W --> L[LLaVA 1.5 7B<br/>4-bit quantised]
+    L --> T[gTTS<br/>text-to-speech]
+    T --> O[🔊 Spoken answer]
+```
 
-2. **Install the required dependencies**:
-    ```bash
-    pip install -r requirements.txt
-    ```
+1. **Whisper (`medium`)** transcribes the spoken question.
+2. **LLaVA-1.5-7B** (`llava-hf/llava-1.5-7b-hf`, loaded in 4-bit with `bitsandbytes`) answers it about the uploaded image through the `image-to-text` pipeline.
+3. **gTTS** converts the answer to speech.
+4. A **Gradio** interface wires it all together (audio in, image in, text + audio out).
 
-3. **Run the Jupyter notebook**:
-    Open `Voice_Assistant.ipynb` in Jupyter and run the cells sequentially to start the voice assistant.
+> 💡 Response time depends on the GPU and, for downloads, on your internet speed.
 
-## Requirements
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Arashomranpour/VoiceLLAVA/blob/main/Voice_Assistant.ipynb)
 
-- Python 3.8 or higher
-- `SpeechRecognition`: Used for converting speech to text.
-- `gTTS`: Google Text-to-Speech for generating audio responses.
-- `transformers`: Hugging Face's transformer library for language modeling.
-- Jupyter Notebook (for running the provided `.ipynb` file)
+## 🚀 Getting Started
 
-## Usage
+Run it in **Google Colab with a GPU** (recommended), or locally with a CUDA GPU:
 
-Once the environment is set up and the notebook is running, the voice assistant will listen for commands and respond with spoken answers. It uses pre-trained models for natural language understanding and can be customized based on specific needs.
+```bash
+git clone https://github.com/Arashomranpour/VoiceLLAVA.git
+cd VoiceLLAVA
+pip install -r requirements.txt
+jupyter notebook Voice_Assistant.ipynb
+```
 
-## Future Enhancements
+## 📁 Project Structure
 
-- **Expand Command Set**: Include more predefined commands for diverse use cases.
-- **Custom Responses**: Allow users to define personalized responses or actions.
-- **Web Integration**: Deploy the assistant as a web app for easier access.
+```
+.
+├── Voice_Assistant.ipynb   # Whisper + LLaVA + gTTS + Gradio app
+└── requirements.txt
+```
 
-## Contributing
+## 🛠️ Tech Stack
 
-Feel free to fork the repository, submit issues, and create pull requests. Contributions are welcome to improve the assistant’s capabilities and performance.
-
+`LLaVA` · `Whisper` · `gTTS` · `Gradio` · `Transformers` · `bitsandbytes` · `PyTorch`
